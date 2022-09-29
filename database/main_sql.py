@@ -8,7 +8,7 @@ def create_connection(db_file):
         conn = sqlite3.connect(db_file)
         cur = conn.cursor()
         print("Base de données crée et correctement connectée à SQLite")
-        sql = "SELECT sqlite_version();"
+        sql = "SELECT *;"
         cur.execute(sql)
         res = cur.fetchall()
         print("La version de SQLite est: ", res)

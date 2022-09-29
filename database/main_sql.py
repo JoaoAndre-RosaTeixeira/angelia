@@ -1,19 +1,26 @@
 import sqlite3
-from sqlite3 import Error
 
 
 def create_connection(db_file):
+    print("hello")
     """ create a database connection to a SQLite database """
-    conn = None
     try:
         conn = sqlite3.connect(db_file)
-        print(sqlite3.version)
-    except Error as e:
-        print(e)
+        cur = conn.cursor()
+        print("Base de données crée et correctement connectée à SQLite")
+        sql = "SELECT sqlite_version();"
+        cur.execute(sql)
+        res = cur.fetchall()
+        print("La version de SQLite est: ", res)
+        cur.close()
+        conn.close()
+        print("La connexion SQLite est fermée")
+    except sqlite3.Error as error:
+        print("Erreur lors de la connexion à SQLite", error)
     finally:
         if conn:
             conn.close()
 
 
-if __name__ == '__main_sql__':
-    create_connection(r"C:\sqlite\db\pythonsqlite.db")
+
+

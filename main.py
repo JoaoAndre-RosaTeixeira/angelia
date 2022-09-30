@@ -1,3 +1,5 @@
-from database.main_sql import create_connection
+from interface_graphique import interface 
 
-create_connection(r"C:\Users\joao0\Documents\programmation\python\Angelia\ressource\Sources_data.db")
+
+
+interface.start()

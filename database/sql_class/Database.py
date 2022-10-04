@@ -2,19 +2,20 @@ import sqlite3
 
 from database.sql_class.Artist import Artist
 from database.sql_class.Song import Song
+from database.sql_class.Songs import Songs
 
 
 class Database:
-    songs: list[Song] = []
+    songs: Songs = Songs()
 
     def __init__(self, ressource_data):
         self.ressource_data = ressource_data
         self.init_data()
 
     def init_data(self):
-        sql_song = "SELECT id, name, popularity, duration_ms, explicit, id_artists, release_date, danceability, energy, acousticness, tempo FROM chansons ORDER BY popularity DESC LIMIT 50;"
 
-        song_data_temp: list = []
+        sql_song = "SELECT id, name, popularity, duration_ms, explicit, id_artists, release_date, energy, acousticness  FROM chansons ORDER BY popularity DESC LIMIT 50;"
+
         try:
             conn = sqlite3.connect(self.ressource_data)
             cur = conn.cursor()
@@ -33,9 +34,10 @@ class Database:
                     artist_data_temp = cur.fetchall()
                     artists.append(Artist(artist_data_temp[0][0], artist_data_temp[0][1], artist_data_temp[0][2],
                                           artist_data_temp[0][3]))
-                self.songs.append(Song(data[0], data[1], data[2], data[3],
-                                       data[4], artists, data[6], data[7],
-                                       data[8], data[9], data[10]))
+
+                self.songs.songs.append(Song(data[0], data[1], data[2], data[3],
+                                             data[4], artists, data[6],
+                                             data[7], data[8]))
 
             cur.close()
             conn.close()

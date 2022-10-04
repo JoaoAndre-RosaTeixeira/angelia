@@ -12,37 +12,51 @@ class Main:
     window.iconbitmap("ressource\image\logo.ico")
     window.config(background=primary_bg)
     ressource_data = "ressource\Sources_data.db"
+    width = window.winfo_width()
+    height = window.winfo_height()
+
     row = 0
     column = 0
-    actual_row = Frame(window, bg=primary_bg, bd=1, relief=SUNKEN)
+
+    frame_container = Frame(window, bg=primary_bg, width=width, height=height)
+    frame_container.pack(expand=YES)
     database = Database(ressource_data)
 
 
 
     def new_row(self):
-        print(self.row, self.column)
-        frame = Frame(self.window, bg=self.primary_bg, bd=1, relief=SUNKEN)
-        print(frame)
-        frame.grid(row=self.row, column=self.column)
-        self.actual_row = frame
+
+        self.column = 0
+        grid = Frame(self.frame_container, bg=self.primary_bg, pady=15)
+        grid.grid(row=self.row, column=self.column)
         self.row += 1
-        return frame
+        return grid
 
     def new_column(self):
-        print(self.row, self.column)
         self.column += 1
-        frame = Frame(self.window, bg=self.primary_bg, bd=1, relief=SUNKEN)
-        frame.grid(row=self.row, column=self.column)
-        return frame
+        grid = Frame(self.frame_container, bg=self.primary_bg)
+        grid.grid(row=self.row, column=self.column)
+        return grid
 
     # def new_label(self, label):
     #    label.pack(expand=YES)
 
     def start_window(self):
+
         self.row = 0
         self.column = 0
-
+        self.frame_container.pack()
         self.window.mainloop()
+        # self.database = Database(self.ressource_data)
+
+    def header(self):
+        div = self.new_row()
+        label_title = Label(div, text="Bienvenue sur Angelia", font=("Courrier", 36), bg=self.primary_bg, padx=30)
+        label_title.pack(expand=YES)
+        div = self.new_row()
+        label_subtitle = Label(div, text="IA de prediction de popularité des musiques", font=("Courrier", 22),
+                               bg=self.primary_bg, padx=30)
+        label_subtitle.pack(expand=YES)
 
     # plt.xlabel("duration")
     # plt.ylabel("popularity")

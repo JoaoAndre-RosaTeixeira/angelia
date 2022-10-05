@@ -18,9 +18,9 @@ class Main:
     row = 0
     column = 0
 
-    frame_container = Frame(window, bg=primary_bg, width=width, height=height)
+    frame_container = Canvas(window, bg=primary_bg, width=width, height=height)
     frame_container.pack(expand=YES)
-    database = Database(ressource_data)
+    # database = Database(ressource_data)
 
 
 
@@ -42,12 +42,19 @@ class Main:
     #    label.pack(expand=YES)
 
     def start_window(self):
-
         self.row = 0
         self.column = 0
-        self.frame_container.pack()
         self.window.mainloop()
         # self.database = Database(self.ressource_data)
+
+    def new_window(self):
+        self.frame_container.destroy()
+        print(self.frame_container)
+        self.frame_container = Canvas(self.window, bg=self.primary_bg, width=self.width, height=self.height)
+        print(self.frame_container)
+        self.frame_container.update()
+
+
 
     def header(self):
         div = self.new_row()

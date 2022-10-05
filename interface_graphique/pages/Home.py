@@ -21,7 +21,7 @@ class Home(Main):
         self.header()
 
         div = self.new_row()
-        button_Top_ten = Button(div, text="Top 10 des potentiel top 50", font=("Arial", 20), bg='white', fg='black', command=self.top_ten.start)
+        button_Top_ten = Button(div, text="Top 10 des potentiel top 50", font=("Arial", 20), bg='white', fg='black', command=self.new_window)
         button_Top_ten.pack(expand=YES)
 
         div = self.new_row()

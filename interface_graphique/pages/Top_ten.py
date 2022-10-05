@@ -8,6 +8,9 @@ class Top_ten(Main):
         super().__init__()
 
     def start(self):
+        self.start_window()
+        self.new_window()
+
         self.header()
 
 

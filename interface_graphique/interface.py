@@ -3,6 +3,8 @@ from tkinter import *
 from database.sql_class.Database import Database
 import matplotlib.pyplot as plt
 
+from interface_graphique.pages.Home import Home
+
 class Main:
     primary_bg = "#d4d4d4"
     window = Tk()
@@ -15,53 +17,23 @@ class Main:
     width = window.winfo_width()
     height = window.winfo_height()
 
-    row = 0
-    column = 0
+    home = Home(window, width, height)
 
-    frame_container = Canvas(window, bg=primary_bg, width=width, height=height)
-    frame_container.pack(expand=YES)
-    # database = Database(ressource_data)
+    def start(self):
+        self.home.start()
 
 
-
-    def new_row(self):
-
-        self.column = 0
-        grid = Frame(self.frame_container, bg=self.primary_bg, pady=15)
-        grid.grid(row=self.row, column=self.column)
-        self.row += 1
-        return grid
-
-    def new_column(self):
-        self.column += 1
-        grid = Frame(self.frame_container, bg=self.primary_bg)
-        grid.grid(row=self.row, column=self.column)
-        return grid
 
     # def new_label(self, label):
     #    label.pack(expand=YES)
 
-    def start_window(self):
-        self.row = 0
-        self.column = 0
-        self.window.mainloop()
-        # self.database = Database(self.ressource_data)
+    #
+    # def new_window(self):
+    #     self.frame_container.destroy()
+    #     self.frame_container.config(bg=self.primary_bg, width=self.width, height=self.height)
+    #     self.frame_container.pack(expand=True)
+    #     print(self.frame_container)
 
-    def new_window(self):
-        self.frame_container.destroy()
-        self.frame_container = Canvas(self.window, bg=self.primary_bg, width=self.width, height=self.height)
-        self.frame_container.update()
-
-
-
-    def header(self):
-        div = self.new_row()
-        label_title = Label(div, text="Bienvenue sur Angelia", font=("Courrier", 36), bg=self.primary_bg, padx=30)
-        label_title.pack(expand=YES)
-        div = self.new_row()
-        label_subtitle = Label(div, text="IA de prediction de popularité des musiques", font=("Courrier", 22),
-                               bg=self.primary_bg, padx=30)
-        label_subtitle.pack(expand=YES)
 
     # plt.xlabel("duration")
     # plt.ylabel("popularity")

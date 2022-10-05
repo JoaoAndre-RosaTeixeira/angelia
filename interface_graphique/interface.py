@@ -49,9 +49,7 @@ class Main:
 
     def new_window(self):
         self.frame_container.destroy()
-        print(self.frame_container)
         self.frame_container = Canvas(self.window, bg=self.primary_bg, width=self.width, height=self.height)
-        print(self.frame_container)
         self.frame_container.update()
 
 

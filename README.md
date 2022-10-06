@@ -33,8 +33,5 @@ accuracy 0.87
 
 Pour utilisé cette IA il faut les parametres demander dans un fichier csv
 
+Il faut parcourir en premier lieu analyse des données ensuite choix parametre et pour finir Essai IA.
 
-la v1 pouvant etre ameliorer nous avons des pistes pour une v2 qui serait :
-  - Amelirorer notre jeux de données en joignant des tables qui nous permettrait d'obtenir plus de data (années, popularité d'artiste et de genre) 
-  - ameliorer le dashboard et l'interface graphique
-  - ajouter l'ia a l'interface graphique (trouver la source de l'erreur)

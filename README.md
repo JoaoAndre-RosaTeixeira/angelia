@@ -1,7 +1,7 @@
 # angelia
 le futur de la musique
 
-Angelia est une intelligence articielle qui trouve si un titre a une chance d'être dans le TOP 50 ou pas.
+Angelia est une intelligence artificielle qui prédit si un titre a une chance d'être dans le TOP 50 ou pas.
 
 Pour utilisé cette IA il vous faudra les données d'une musique qui respecte certains parametres.
 
@@ -17,7 +17,7 @@ Cette IA n'a pas un taux de réussite a 100% ce qui signifie qu'il y a une marge
 Pour crée cette IA nous avons :
 
 Analyse des Données
-Fair une Visualisation avec les parametres Popularity et Followers de l'artiste
+Fait une Visualisation avec les parametres Popularity et Followers de l'artiste
 Création de la heatmap grace a Seaborn
 
 Nous avons testées 3 algorithmes pour l'IA.

@@ -18,7 +18,7 @@ class Home(Template):
         self.width = width
         self.height = height
         self.image = PhotoImage(file="background.png")
-        self.image.zoom(4, 4)
+        self.image.zoom(8, 8)
         self.frame_canvas = Canvas(self.window, bg=self.primary_bg, width=self.width, height=self.height)
         self.frame_canvas.create_image(self.image.width() / 2, self.image.height() / 2, image=self.image)
 
@@ -38,7 +38,7 @@ class Home(Template):
         self.column = 0
 
         # self.frame_image.pack()
-        self.frame_canvas.pack(expand=YES)
+        self.frame_canvas.pack(expand=YES, fill="both", side=BOTTOM)
         self.header()
 
         div = self.new_row()

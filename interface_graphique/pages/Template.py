@@ -1,5 +1,6 @@
 from tkinter import *
 
+
 class Template:
 
 
@@ -14,6 +15,9 @@ class Template:
         self.frame_canvas.destroy()
         self.top_ten.start()
 
+
+
+
     def Button_spotify(self):
         self.frame_canvas.destroy()
         self.spotify.start()
@@ -25,13 +29,14 @@ class Template:
         self.frame_canvas.destroy()
         self.spotify.start()
     def header(self):
+
         div = self.new_row()
         label_title = Label(div, text="Bienvenue sur Angelia", font=("Courrier", 36), bg=self.primary_bg, padx=30)
-        label_title.pack(expand=YES)
+        label_title.pack(expand=True, side=BOTTOM)
         div = self.new_row()
         label_subtitle = Label(div, text="IA de prediction de popularité des musiques", font=("Courrier", 22),
                                bg=self.primary_bg, padx=30)
-        label_subtitle.pack(expand=YES)
+        label_subtitle.pack(expand=True, side=BOTTOM)
 
     def new_row(self):
         self.column = 0

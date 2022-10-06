@@ -13,10 +13,14 @@ class Spotify(Template):
     primary_bg = "#d4d4d4"
 
     def __init__(self, window, width, height):
+        super().__init__()
         self.window = window
         self.width = width
         self.height = height
-        self.frame_canvas = Frame(self.window, bg=self.primary_bg, width=self.width, height=self.height)
+        self.image = PhotoImage(file="background.png")
+        self.image.zoom(8, 8)
+        self.frame_canvas = Canvas(self.window, bg=self.primary_bg, width=self.width, height=self.height)
+        self.frame_canvas.create_image(self.image.width() / 2, self.image.height() / 2, image=self.image)
         self.row = 0
         self.column = 0
 
@@ -24,9 +28,9 @@ class Spotify(Template):
         self.row = 0
         self.column = 0
 
-        self.header()
 
-        self.frame_canvas.pack()
+        self.frame_canvas.pack(expand=YES, fill="none", side=BOTTOM)
+        self.header()
 
         cnx = sqlite3.connect('ressource\Sources_data.db')
 

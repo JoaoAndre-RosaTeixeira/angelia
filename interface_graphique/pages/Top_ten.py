@@ -16,7 +16,10 @@ class Top_ten(Template):
         self.window = window
         self.width = width
         self.height = height
-        self.frame_canvas = Frame(self.window, bg=self.primary_bg, width=self.width, height=self.height)
+        self.image = PhotoImage(file="background.png")
+        self.image.zoom(8, 8)
+        self.frame_canvas = Canvas(self.window, bg=self.primary_bg, width=self.width, height=self.height)
+        self.frame_canvas.create_image(self.image.width() / 2, self.image.height() / 2, image=self.image)
         self.row = 0
         self.column = 0
 
@@ -24,31 +27,11 @@ class Top_ten(Template):
         self.row = 0
         self.column = 0
 
+        self.frame_canvas.pack(expand=YES, fill="both", side=BOTTOM)
         self.header()
 
-        self.frame_canvas.pack()
-
-        cnx = sqlite3.connect('ressource\Sources_data.db')
-
-        df = pd.read_sql_query("SELECT * FROM chansons", cnx)
-
-        heatmap = sns.heatmap(df.corr())
 
 
-        div = self.new_row()
-        heatmap.set_title('Correlation Heatmap', fontdict={'fontsize': 12})
-        heatmap.figure.savefig('heatmap_figure.png', dpi=1000)
-
-
-        image = PhotoImage(file="heatmap_figure.png").subsample(10)
-
-
-        frame_canvas = Canvas(div, width=image.width(), height=image.height(), bg=self.primary_bg, bd=1,
-                              relief=SOLID)
-        frame_canvas.create_image(image.width() / 2, image.height() /2, image=image)
-        frame_canvas.pack(expand=YES)
-
-        plt.close()
 
         self.window.mainloop()
 

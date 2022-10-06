@@ -14,9 +14,10 @@ En ayant completer les conditions l'IA vous predira si votre chansons a une chan
 IMPORTANT ! 
 Cette IA n'a pas un taux de réussite a 100% ce qui signifie qu'il y a une marge d'erreur.
 
+Pour crée cette IA nous avons :
 
 Analyse des Données
-Visualisation avec les parametres Popularity et Followers de l'artiste
+Fair une Visualisation avec les parametres Popularity et Followers de l'artiste
 Création de la heatmap grace a Seaborn
 
 Nous avons testées 3 algorithmes pour l'IA.
@@ -29,3 +30,5 @@ Regression Logistique
 
 Resultat obtenu : R squared: 0.21
 accuracy 0.87
+
+Pour utilisé cette IA il faut les parametres demander dans un fichier csv

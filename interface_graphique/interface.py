@@ -9,7 +9,7 @@ class Main:
     primary_bg = "#d4d4d4"
     window = Tk()
     window.title("Angelia")
-    window.geometry("1080x720")
+    window.geometry("1400x800")
     window.minsize(480, 360)
     window.iconbitmap("ressource\image\logo.ico")
     window.config(background=primary_bg)

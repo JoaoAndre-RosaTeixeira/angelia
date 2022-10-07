@@ -59,6 +59,7 @@ class Ia:
     accuracy_array = np.array([0.1])
     print(accuracy_array)
 
+
     for i in range(12000):
         y_pred = classifier.predict_proba(X_test)[:,1]
         y_pred [y_pred >= (i/10000)]=1
@@ -83,7 +84,7 @@ class Ia:
         print("Prediction for this song: {}".format(y_my_song))
 
         for x in y_my_song:
-            if x > 90:
+            if x > 0:
                 print('The song will be a top 50 hit !!!')
             else:
                 print('The song will not be in the top 50')

@@ -1,13 +1,12 @@
-#
-# from interface_graphique.interface import Main
-#
-#
-# main = Main()
-#
-# main.start()
+from interface_graphique.interface import Main
 
+#ATTENTION l'IA et l'interface graphique ne fonctionne pas ensemble encore une erreur non resolue fait que l'IA genere une erreur dans l'interface graphique
 
-from IA.Ia import Ia
+#decommenter afin de lancer l'interface de données
+main = Main()
+main.start()
 
-ia = Ia()
-
+#decommenter afin de lancer l'IA
+# from IA.Ia import Ia#
+# ia = Ia()
+#

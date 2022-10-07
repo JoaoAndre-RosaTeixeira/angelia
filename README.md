@@ -3,35 +3,42 @@ le futur de la musique
 
 Angelia est une intelligence artificielle qui prédit si un titre a une chance d'être dans le TOP 50 ou pas.
 
-Pour utilisé cette IA il vous faudra les données d'une musique qui respecte certains parametres.
+Pour utiliser cette IA, il vous faudra les données d'une musique qui respecte certains paramètres.
 
-C'est parametre sont : Energy,duration,explicit,dancability,loudness, speechness,accoustisness,instrumentalness,liveness,valence,tempo.
+C'est paramètre sont : Energy,duration,explicit,dancability,loudness, speechness,accoustisness,instrumentalness,liveness,valence,tempo.
 
-Ces données devront êtres dans un Fichier csv.
+Ces données devront être dans un Fichier CSV.
 
-En ayant completer les conditions l'IA vous predira si votre chansons a une chance d'être dans le TOP 50 ou pas.
+En ayant complété les conditions, l'IA vous prédira si vos chansons ont une chance d'être dans le TOP 50 ou pas.
 
 IMPORTANT ! 
-Cette IA n'a pas un taux de réussite a 100% ce qui signifie qu'il y a une marge d'erreur.
 
-Pour crée cette IA nous avons :
+Cette IA n'a pas un taux de réussite à 100 % ce qui signifie qu'il y a une marge d'erreur.
+
+Pour créer cette IA, nous avons :
 
 Analyse des Données
-Fait une Visualisation avec les parametres Popularity et Followers de l'artiste
-Création de la heatmap grace a Seaborn
 
-Nous avons testées 3 algorithmes pour l'IA.
-2 Algorithmes de Regression et 
+Fait une Visualisation avec les paramètres Popularity et Followers de l'artiste
+
+Création de la heatmap grâce à Seaborn
+
+Nous avons testé trois algorithmes pour l'IA.
+
+2 Algorithmes de Régression et 
+
 1 de classification
 
-Arbre de Regression multiple
-Regression lineaire multiples
-Regression Logistique
+Arbre de Régression multiple
 
-Resultat obtenu : R squared: 0.21
+Régression linéaire multiple
+
+Régression Logistique
+
+Résultat obtenu : R squared: 0.21
+
 accuracy 0.87
 
-Pour utilisé cette IA il faut les parametres demander dans un fichier csv
+Pour utiliser cette IA, il faut les paramètres demander dans un fichier CSV
 
-Il faut parcourir en premier lieu analyse des données ensuite choix parametre et pour finir Essai IA.
-
+Librairie utilisé :pandas,numpy,matplotlib,sklearn,seaborn,tkinteur,sqlite3.

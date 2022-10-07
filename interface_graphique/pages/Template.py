@@ -1,9 +1,9 @@
 from tkinter import *
 
 
+# TTemplate des fenetres/pages afin de pouvoir y ajouter des function communes tel que la creation dune nouvelle ligne--
+# --ou colonne grace a un grid implementer un header ou encore l'implementation des boutons d'accees aux pages
 class Template:
-
-
     def __init__(self):
         self.top_ten = None
         self.row = None
@@ -15,12 +15,10 @@ class Template:
         self.frame_canvas.destroy()
         self.top_ten.start()
 
-
-
-
     def Button_spotify(self):
         self.frame_canvas.destroy()
         self.spotify.start()
+
     def Button_deezer(self):
         self.frame_canvas.destroy()
         self.spotify.start()
@@ -28,8 +26,8 @@ class Template:
     def Button_youtube(self):
         self.frame_canvas.destroy()
         self.spotify.start()
-    def header(self):
 
+    def header(self):
         div = self.new_row()
         label_title = Label(div, text="Bienvenue sur Angelia", font=("Courrier", 36), bg=self.primary_bg, padx=30)
         label_title.pack(expand=True, side=BOTTOM)

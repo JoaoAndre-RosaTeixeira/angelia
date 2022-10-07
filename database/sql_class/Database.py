@@ -14,9 +14,12 @@ class Database:
 
     def init_data(self):
 
+
         sql_song = "SELECT id, name, popularity, duration_ms, explicit, id_artists, release_date, energy, acousticness  FROM chansons ORDER BY popularity DESC LIMIT 50;"
 
         try:
+
+            # fait une requete au .db afin de recuper la base de données et enregistrer dans les class les informations
             conn = sqlite3.connect(self.ressource_data)
             cur = conn.cursor()
             print("Base de données crée est correctement connectée à SQLite")
@@ -27,8 +30,8 @@ class Database:
 
             for data in song_data_temp:
                 artists = []
-
                 for artist in data[5][2:-2].split("', '"):
+                    # fait une requete au .db afin de recuperer les artists a partir des id recuperer dans les chansons
                     sql_artist = f"SELECT id, name, popularity, followers FROM artistes WHERE id = '{artist}';"
                     cur.execute(sql_artist)
                     artist_data_temp = cur.fetchall()
@@ -45,6 +48,7 @@ class Database:
 
         except sqlite3.Error as error:
             print("Erreur lors de la connexion à SQLite", error)
+
 
     def create_connection(self, sql):
         try:

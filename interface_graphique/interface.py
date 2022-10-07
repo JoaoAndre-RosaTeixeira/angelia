@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 
 from interface_graphique.pages.Home import Home
 
+
+# genere la ppage tkinter de l'application avec les information de la fenetre et creer la page Home via sa class afin de
+# l'initialiser en envoyant des infos de la window qui a ete creer sa taille le primary background
 class Main:
     primary_bg = "#d4d4d4"
     window = Tk()
@@ -13,7 +16,6 @@ class Main:
     window.minsize(480, 360)
     window.iconbitmap("ressource\image\logo.ico")
     window.config(background=primary_bg)
-    ressource_data = "ressource\Sources_data.db"
     width = window.winfo_width()
     height = window.winfo_height()
 
@@ -24,16 +26,16 @@ class Main:
 
 
 
-    # def new_label(self, label):
-    #    label.pack(expand=YES)
+
+
 
     #
+    # INUTILE juste du memotechnique
     # def new_window(self):
     #     self.frame_container.destroy()
     #     self.frame_container.config(bg=self.primary_bg, width=self.width, height=self.height)
     #     self.frame_container.pack(expand=True)
     #     print(self.frame_container)
-
 
     # plt.xlabel("duration")
     # plt.ylabel("popularity")
@@ -50,22 +52,3 @@ class Main:
     # frame_canvas.pack(expand=YES)
     #
     # plt.close()
-
-    # colones_for_table_interface = ["name", "popularity", "artists"]
-    # l = 0 # futur usation for grid or canvas for table
-    # c = 0 # futur usation for grid or canvas for table
-    # for colone in colones_for_table_interface:
-    #     data_colone = Frame(frame_data, bg=primary_bg, bd=1, relief=SOLID)
-    #     colone_value = Label(data_colone, text=colone, font=("Arial", 10), bg=primary_bg)
-    #     colone_value.pack(side=TOP, expand=YES)
-    #     for song in database.songs:
-    #         data_line = Frame(data_colone, bg=primary_bg, bd=1, relief=SOLID)
-    #         if colone == "artists":
-    #             for artist in song.artists:
-    #                 colone_value = Label(data_line, text=f"({artist.name})", font=("Arial", 10), bg=primary_bg)
-    #                 colone_value.pack(side=LEFT, expand=YES)
-    #         else:
-    #             colone_value = Label(data_line, text=getattr(song, colone), font=("Arial", 10), bg=primary_bg)
-    #             colone_value.pack(side=LEFT, expand=YES)
-    #         data_line.pack(expand=YES)
-    #     data_colone.pack(side=LEFT, expand=YES)

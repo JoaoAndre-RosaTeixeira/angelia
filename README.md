@@ -41,4 +41,4 @@ accuracy 0.87
 
 Pour utiliser cette IA, il faut les paramètres demander dans un fichier CSV
 
-Librairie utilisé :pandas,numpy,matplotlib,sklearn,seaborn,tkinteur,sqlite3.
+Librairie utilisé :pandas,numpy,matplotlib,sklearn,seaborn,tkinter,sqlite3.

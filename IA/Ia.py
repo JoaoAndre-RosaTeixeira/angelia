@@ -1,5 +1,4 @@
 import sqlite3
-
 import pathlib
 import pandas as pd
 import numpy as np
@@ -14,36 +13,44 @@ from sklearn import metrics
 
 
 class Ia:
-
+    # Création d'un dataframe à partir d'un fichier csv, définition de la target(popularity) et des différents paramètres à utiliser
     dataset = pd.read_csv("ressource\chansons.csv")
     X = dataset[['duration_ms', 'explicit', 'danceability', 'energy',
            'loudness', 'speechiness', 'acousticness', 'instrumentalness',
            'liveness', 'valence', 'tempo']]
     y = dataset['popularity']
+    #Division du jeux de données en 2 jeux : train et test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+    #Entrainement de l'algorithme Decision Tree Regression
     regressor = DecisionTreeRegressor()
     regressor.fit(X_train, y_train)
     y_pred = regressor.predict(X_test)
+    #Comparaison des données prédites et réelles
     df=pd.DataFrame({'Actual':y_test, 'Predicted':y_pred})
-
+    #Nettoyage des données
     dataset = dataset[dataset.popularity != 0]
     dataset = dataset[dataset.duration_ms < 1000000]
-    dataset.sort_values(by = 'duration_ms', ascending = False)
+    dataset = dataset[dataset.tempo != 0]
 
+    #Deuxième algorithme : Logistic Regression
+    #Choix des classes pour l(algorithme de classification
     y[y < 50]=0
     y[y >= 50]=1
 
+    #Division du jeux de données en 2 jeux : train et test
     X_train,X_test, y_train,y_test = train_test_split(X,y,test_size = 0.20,random_state = 0)
 
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
 
+    #Entrainement du second algorithme
     classifier = LogisticRegression()
     classifier.fit(X_train, y_train)
 
     y_pred = classifier.predict(X_test)
 
+    #Vérification de la fiabilité de l'IA
     accuracy = accuracy_score(y_test, y_pred)
     print(accuracy)
 
@@ -59,7 +66,7 @@ class Ia:
     accuracy_array = np.array([0.1])
     print(accuracy_array)
 
-
+    #Amélioration des prédiction de l'IA avec l'intégration de probabilité
     for i in range(12000):
         y_pred = classifier.predict_proba(X_test)[:,1]
         y_pred [y_pred >= (i/10000)]=1
@@ -73,7 +80,7 @@ class Ia:
     print(accuracy)
 
 
-    #fonction pour appeller l'ia et lui envoyer les nouvelles chansons à traiter
+    #Utilisation de l'IA entrainée pour prédire de nouvelles musiques
     def calculate_popularity(self):
 
         my_song = f"{input()}.csv"
